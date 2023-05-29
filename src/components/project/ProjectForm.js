@@ -4,7 +4,7 @@ import Select from '../form/Select'
 import SubmitButton from '../form/SubmitButton'
 import style from './ProjectForm.module.css'
 
-function ProjectForm({ handleSubmit, btnText, projectData }) {
+const ProjectForm = ({ handleSubmit, btnText, projectData }) => {
 
     const [categories, setCategories] = useState([]);
     const [project, setProject] = useState(projectData || {})
@@ -29,11 +29,11 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
         handleSubmit(project)
     }
 
-    function handleChange(e) {
+    const handleChange = (e) => {
         setProject({ ...project, [e.target.name]: e.target.value });
     }
 
-    function handleCategory(e) {
+    const handleCategory = (e) => {
         setProject({
             ...project, category: {
                 id: e.target.value,
