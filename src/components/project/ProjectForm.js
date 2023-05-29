@@ -49,7 +49,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
                 text="Nome do projeto"
                 name="name"
                 placeholder="Insira o nome do projeto"
-                handleOnChange={handleChange}
+                onChange={handleChange}
                 value={project.name ? project.name : ''}
             />
 
@@ -58,7 +58,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
                 text="Orçamento do projeto"
                 name="budget"
                 placeholder="Insira o orçamento"
-                handleOnChange={handleChange}
+                onChange={handleChange}
                 value={project.budget ? project.budget : ''}
             />
 
@@ -67,7 +67,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
                 name="category_id"
                 defaultValue={'default'}
                 options={categories}
-                handleOnChange={handleCategory}
+                onChange={handleCategory}
                 value={project.category ? project.category.id : ''}
             />
 

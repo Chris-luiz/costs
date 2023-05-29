@@ -32,7 +32,6 @@ function Project() {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     setProject(data)
                     setServices(data.services)
                 })
@@ -69,12 +68,11 @@ function Project() {
 
     function createService(project) {
         const lastService = project.services[project.services.length - 1]
-
         lastService.id = uuidv4();
 
         const lastServiceCost = lastService.cost;
         const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
-
+        
         if (newCost > parseFloat(project.budget)) {
             setMessage('Orçamento ultrapassado, verifique o valor do servico')
             setType('error');
