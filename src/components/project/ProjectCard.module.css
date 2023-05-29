@@ -15,6 +15,12 @@
     text-align: center;
 }
 
+.project_card p {
+    color: #7a7a7a;
+    margin-bottom: 1em;
+  }
+  
+
 .project_card p span{
     font-weight: bold;
 }

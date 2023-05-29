@@ -1,8 +1,8 @@
 {
   "projects": [
     {
-      "name": "meu projeto2",
-      "budget": "1123123",
+      "name": "meu projeto",
+      "budget": "25.000",
       "category": {
         "id": "1",
         "name": "Infra"
@@ -12,8 +12,8 @@
       "id": 1
     },
     {
-      "name": "wedqqwesda",
-      "budget": "123123",
+      "name": "Teste",
+      "budget": "100.000",
       "category": {
         "id": "3",
         "name": "Design"
