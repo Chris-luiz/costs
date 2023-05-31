@@ -4,7 +4,18 @@ Projeto Costs [Create React App](https://github.com/facebook/create-react-app).
 
 ## Sobre
 
-In the project directory, you can run:
+Este projeto foi feito quando eu estava aprendendo react, e trata-se de um cursinho com um projeto simples feito em react, sem typescript.
+Você pode encontrar esse projeto rodando no github pages, basta clicar no link a seguir ou digitar manualmente [[Link do Github Pages]]
+
+## Oque inovei
+
+Para simplesmente não copiar e colar o projeto do curso, resolvi acresentar novas funcionalidades conforme fui evoluindo como desenvolvedor front-end.
+A lista de features que inclui nesse projeto foram: 
+
+* Acrecentei validações de formulario nas operações de CRUD, para isso, utilizei a biblioteca yup
+* Para gerenciar os dados dos formularios, utilizei a biblioteca React-Hook-Forms
+* Refiz a estilização utilizando Styled-Components.
+
 
 ## Como Rodar Esse Projeto em sua Maquina
 
@@ -23,22 +34,3 @@ Em seu navegador favorito, acesse [http://localhost:3000](http://localhost:3000)
 Essa aplicação não utiliza um backend, então para simular um, utilizo a biblioteca json-server, que é fundamental para a aplicação rodar.
 Para rodar o json-server, execute o comando npm-run-backend junto do npm start, para que cliente e servidor rodem simultaneamente
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
