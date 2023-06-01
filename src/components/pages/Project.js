@@ -154,7 +154,7 @@ function Project() {
                             ) : (
                                 <div className={styles.form}>
                                     <ProjectForm
-                                        handleSubmit={editPost}
+                                        onSubmit={editPost}
                                         btnText="Concluir edição"
                                         projectData={project}
                                     />
@@ -171,7 +171,7 @@ function Project() {
                             <div className={styles.form}>
                                 {showServiceForm &&
                                     <ServiceForm
-                                        handleSubmit={createService}
+                                        onSubmit={createService}
                                         btnTxt="Adicionar Serviço"
                                         projectData={project}
                                     />
