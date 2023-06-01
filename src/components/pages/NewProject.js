@@ -2,13 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import styles from './NewProject.module.css'
 import ProjectForm from './../project/ProjectForm'
 
-import { object, string, number } from 'yup';
 
-const projectSchema = object({
-    name: string().required().min(3),
-    budget: number().required().positive().integer(),
-    category: string().required()
-})
 
 function NewProject() {
 
@@ -17,10 +11,6 @@ function NewProject() {
     const createPost = async (project) => {
 
         try {
-            const result = await projectSchema.validate(project, { abortEarly: false });
-
-            console.log(project);
-            return;
             project.cost = 0
             project.services = []
 

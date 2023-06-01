@@ -25,7 +25,7 @@ function ServiceForm({ onSubmit, btnTxt, projectData }) {
             const result = await serviceSchema.validate(data, { abortEarly: false });
             console.log(result)
         } catch (err) {
-
+            
             errors.inner.forEach(erro => {
                 console.error(erro.message)
             })
@@ -37,7 +37,6 @@ function ServiceForm({ onSubmit, btnTxt, projectData }) {
     }
 
     const handleChange = (e) => {
-        console.log(e.target.value);
         setService({ ...service, [e.target.name]: e.target.value })
     }
 

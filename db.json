@@ -20,6 +20,14 @@
         }
       ],
       "id": 1
+    },
+    {
+      "name": "Christan Luiz De Souza Paes",
+      "budget": 2552,
+      "category": "Infra",
+      "cost": 0,
+      "services": [],
+      "id": 2
     }
   ]
 }

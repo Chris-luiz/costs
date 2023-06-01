@@ -5,17 +5,40 @@ import style from './ProjectForm.module.css'
 import { useForm } from 'react-hook-form';
 import { CATEGORIES } from '../../constants/categories';
 
+import { object, string, number } from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+
+const projectSchema = object({
+    name: string().required().min(3),
+    budget: number().required().positive().integer(),
+    category: string().required()
+}).required()
+
 const ProjectForm = ({ onSubmit, btnText, projectData }) => {
 
-    const { register, handleSubmit } = useForm(projectData && {
-        defaultValues: {
-            name: projectData.name,
-            budget: projectData.budget,
-            category: projectData.category
-        }
-    });
+    const { register, handleSubmit, formState: { errors } } = useForm(
+        {
+            resolver: yupResolver(projectSchema),
+            defaultValues: projectData && {
+                name: projectData.name,
+                budget: projectData.budget,
+                category: projectData.category
+            },
+        });
 
-    const submit = e => onSubmit({ ...projectData, name: e.name, budget: e.budget, category: e.category });
+    const submit = async data => {
+        try {
+            const result = await projectSchema.validate(data, { abortEarly: false });
+            if (result) {
+                onSubmit({ ...projectData, name: data.name, budget: data.budget, category: data.category })
+            };
+        } catch (errors) {
+            errors.inner.forEach(erro => {
+                console.error(erro.message)
+            })
+        }
+    };
 
     return (
         <form onSubmit={handleSubmit(submit)} className={style.form}>
@@ -25,6 +48,7 @@ const ProjectForm = ({ onSubmit, btnText, projectData }) => {
                 name="name"
                 placeholder="Insira o nome do projeto"
                 rest={{ ...register('name') }}
+                error={errors.name?.message}
             />
 
             <Input
@@ -33,6 +57,7 @@ const ProjectForm = ({ onSubmit, btnText, projectData }) => {
                 name="budget"
                 placeholder="Insira o orçamento"
                 rest={{ ...register('budget') }}
+                error={errors.budget?.message}
             />
 
             <Select
@@ -41,6 +66,7 @@ const ProjectForm = ({ onSubmit, btnText, projectData }) => {
                 defaultValue={'default'}
                 options={CATEGORIES}
                 rest={{ ...register('category') }}
+                error={errors.category?.message}
             />
 
             <SubmitButton text={btnText} />
