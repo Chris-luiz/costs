@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BsPencil, BsFillTrashFill } from 'react-icons/bs';
 import styles from './ProjectCard.module.css';
-import { TextCategory } from '../styled-components/TextCategory';
 
 const ProjectCard = ({ id, name, budget, category, handleRemove }) => {
     const remove = (e) => {
@@ -15,11 +14,9 @@ const ProjectCard = ({ id, name, budget, category, handleRemove }) => {
             <p>
                 <span>Orçamento:</span> R${budget}
             </p>
-            <TextCategory>
-                <span className={`${styles[category.toLowerCase()]}`}></span> {category}
 
-            </TextCategory>
             <p className={`${styles.category_text}`}>
+                <span className={`${styles[category.toLowerCase()]}`}></span> {category}
             </p>
             <div className={`${styles.project_card_actions}`}>
                 <Link to={`/project/${id}`}>

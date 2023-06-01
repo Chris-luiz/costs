@@ -4,27 +4,31 @@ import SubmitButton from '../form/SubmitButton';
 import styles from '../project/ProjectForm.module.css'
 import { useForm } from 'react-hook-form';
 import { object, string, number } from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const serviceSchema = object({
-    nome: string().required('Prencha o Campo').min(3),
-    custo: number().required('Prencha o Campo').positive().integer(),
-    descricao: string().required('Prencha o Campo').min(3)
-});
+    name: string().required('Prencha o Campo').min(3, 'deve possuir no minimo 3 caracteres'),
+    budget: number('escreva numeros').required('Prencha o Campo').positive('Deve ser positivo'),
+    description: string().required('Prencha o Campo').min(3, 'deve possuir no minimo 3 caracteres')
+}).required();
 
 function ServiceForm({ onSubmit, btnTxt, projectData }) {
 
     const [service, setService] = useState({});
 
-    const [errors, setErrors] = useState({});
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(serviceSchema)
+    });
 
-    const submit = async (e) => {
+    const submit = async (data) => {
         try {
-            const result = await serviceSchema.validate(e, {abortEarly: false});
+            const result = await serviceSchema.validate(data, { abortEarly: false });
             console.log(result)
         } catch (err) {
 
-            err.inner.forEach(erro => console.error(erro.message))
+            errors.inner.forEach(erro => {
+                console.error(erro.message)
+            })
         }
 
         // e.preventDefault();
@@ -46,7 +50,8 @@ function ServiceForm({ onSubmit, btnTxt, projectData }) {
                 placeholder="Insira o nome do serviço"
                 onChange={handleChange}
                 value={service.name}
-                rest={{ ...register('nome') }}
+                rest={{ ...register('name') }}
+                error={errors.name?.message}
             />
 
             <Input
@@ -56,7 +61,8 @@ function ServiceForm({ onSubmit, btnTxt, projectData }) {
                 placeholder="Insira o valor do total"
                 onChange={handleChange}
                 value={service.cost}
-                rest={{ ...register('custo') }}
+                rest={{ ...register('budget') }}
+                error={errors.budget?.message}
             />
 
             <Input
@@ -66,7 +72,8 @@ function ServiceForm({ onSubmit, btnTxt, projectData }) {
                 placeholder="Insira a descrição do serviço"
                 onChange={handleChange}
                 value={service.budget}
-                rest={{ ...register('descricao') }}
+                rest={{ ...register('description') }}
+                error={errors.description?.message}
             />
 
             <SubmitButton text={btnTxt} />

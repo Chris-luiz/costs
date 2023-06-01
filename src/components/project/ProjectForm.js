@@ -1,56 +1,30 @@
-import { useEffect, useState } from 'react'
 import Input from '../form/Input'
 import Select from '../form/Select'
 import SubmitButton from '../form/SubmitButton'
 import style from './ProjectForm.module.css'
+import { useForm } from 'react-hook-form';
+import { CATEGORIES } from '../../constants/categories';
 
-const ProjectForm = ({ handleSubmit, btnText, projectData }) => {
+const ProjectForm = ({ onSubmit, btnText, projectData }) => {
 
-    const [categories, setCategories] = useState([]);
-    const [project, setProject] = useState(projectData || {})
+    const { register, handleSubmit } = useForm(projectData && {
+        defaultValues: {
+            name: projectData.name,
+            budget: projectData.budget,
+            category: projectData.category
+        }
+    });
 
-    useEffect(() => {
-        fetch('http://localhost:5000/categories', {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                setCategories(data)
-            })
-            .catch((err) => console.log(err))
-    },
-        [])
-
-    const submit = (e) => {
-        e.preventDefault()
-        handleSubmit(project)
-    }
-
-    const handleChange = (e) => {
-        setProject({ ...project, [e.target.name]: e.target.value });
-    }
-
-    const handleCategory = (e) => {
-        setProject({
-            ...project, category: {
-                id: e.target.value,
-                name: e.target.options[e.target.selectedIndex].text,
-            },
-        })
-    }
+    const submit = e => onSubmit({ ...projectData, name: e.name, budget: e.budget, category: e.category });
 
     return (
-        <form onSubmit={submit} className={style.form}>
+        <form onSubmit={handleSubmit(submit)} className={style.form}>
             <Input
                 type="text"
                 text="Nome do projeto"
                 name="name"
                 placeholder="Insira o nome do projeto"
-                onChange={handleChange}
-                value={project.name ? project.name : ''}
+                rest={{ ...register('name') }}
             />
 
             <Input
@@ -58,20 +32,18 @@ const ProjectForm = ({ handleSubmit, btnText, projectData }) => {
                 text="Orçamento do projeto"
                 name="budget"
                 placeholder="Insira o orçamento"
-                onChange={handleChange}
-                value={project.budget ? project.budget : ''}
+                rest={{ ...register('budget') }}
             />
 
             <Select
                 text="Selecione a categoria"
                 name="category_id"
                 defaultValue={'default'}
-                options={categories}
-                onChange={handleCategory}
-                value={project.category ? project.category.id : ''}
+                options={CATEGORIES}
+                rest={{ ...register('category') }}
             />
 
-            <SubmitButton value={btnText} />
+            <SubmitButton text={btnText} />
         </form>
     )
 }
