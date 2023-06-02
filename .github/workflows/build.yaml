@@ -30,4 +30,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
-          folder: dist # ou a pasta onde o código compilado está localizado
+          folder: build # ou a pasta onde o código compilado está localizado
