@@ -1,7 +1,7 @@
 {
   "name": "react-test",
   "version": "0.1.0",
-  "homepage": "github-page/costs/",
+  "homepage": "https://gitname.github.io/costs/",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^3.1.0",
