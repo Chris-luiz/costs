@@ -1,7 +1,7 @@
 import styles from './Message.module.css';
 import { useEffect, useState } from 'react';
 
-function Message({ msg, type }) {
+const Message = ({ msg, type }) => {
 
     const [visible, setVisible] = useState(false);
 
