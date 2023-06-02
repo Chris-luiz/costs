@@ -23,9 +23,8 @@ function ServiceForm({ onSubmit, btnTxt, projectData }) {
         try {
             const result = await serviceSchema.validate(data, { abortEarly: false });
             projectData.services.push(result);
-            onSubmit(result)
+            onSubmit(projectData)
         } catch (err) {
-
             errors.inner.forEach(erro => {
                 console.error(erro.message)
             })

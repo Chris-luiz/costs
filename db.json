@@ -4,7 +4,7 @@
       "name": "meu projeto",
       "budget": "25000",
       "category": "Design",
-      "cost": 7500,
+      "cost": null,
       "services": [
         {
           "name": "Contratar um DevOps",
@@ -13,10 +13,10 @@
           "id": "79475653-9d65-4eb0-921b-9b12b6c6be52"
         },
         {
-          "name": "Contratar Front-End",
-          "cost": "2500",
-          "description": "Programador Front-end",
-          "id": "8db6101f-2789-4c01-a7c0-062eeb7123e3"
+          "description": "ASD",
+          "budget": 213,
+          "name": "ZAAZ",
+          "id": "a289168c-47ce-426c-88bb-5bf1bb8d89c0"
         }
       ],
       "id": 1
