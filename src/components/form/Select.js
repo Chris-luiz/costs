@@ -1,11 +1,10 @@
-import styles from './Select.module.css'
-
-function Select({ text, name, defaultValue, options, rest, value, error }) {
+const Select = ({ text, name, defaultValue, options, rest, value, error }) => {
     return (
-        <div className={styles.form_control}>
-            <label htmlFor={name}>{text}</label>
+        <div className='flex flex-col mb-4'>
+            <label className='mb-2 font-bold' htmlFor={name}>{text}</label>
 
             <select
+                className='p-2 bg-white'
                 id={name}
                 name={name}
                 value={value}
