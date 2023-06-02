@@ -5,7 +5,6 @@ import Message from '../layout/Message'
 import LinkButton from '../layout/LinkButton';
 import ProjectCard from '../project/ProjectCard';
 import Loading from '../layout/Loading';
-import styles from './Projects.module.css'
 
 function Projects() {
 
@@ -46,17 +45,17 @@ function Projects() {
     }
 
     return (
-        <div className={`${styles.project_container}`}>
+        <div className='p-4 w-full'>
             
-            <div className={`${styles.title_container}`}>
-                <h1>Meus Projetos</h1>
+            <div className='flex justify-between m-4'>
+                <h1 className='font-bold text-xl'>Meus Projetos</h1>
                 <LinkButton to='/newproject' text='Novo Projeto' />
             </div>
 
             {message && <Message msg={message} type={'success'} />}
             {projectMessage && <Message msg={projectMessage} type={'success'} />}
 
-            <Container customClass="start">
+            <Container customClass="center">
                 {projects &&
                     projects.map(project => (
                         <ProjectCard

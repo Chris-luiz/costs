@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Input from '../form/Input';
 import SubmitButton from '../form/SubmitButton';
-import styles from '../project/ProjectForm.module.css'
 import { useForm } from 'react-hook-form';
 import { object, string, number } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -41,7 +40,7 @@ function ServiceForm({ onSubmit, btnTxt, projectData }) {
     }
 
     return (
-        <form onSubmit={handleSubmit(submit)} className={styles.form}>
+        <form onSubmit={handleSubmit(submit)} className='w-full'>
             <Input
                 type="text"
                 text="Nome do Serviço"
