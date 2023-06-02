@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
-import styles from './LinkButton.module.css'
 
 function LinkButton({ to, text }) {
     return (
-        <Link className={styles.btn} to={to}>
+        <Link className='bg-zinc-900 text-white hover:text-yellow-500 transition-colors px-2 py-3' to={to}>
             {text}
         </Link>
     )
