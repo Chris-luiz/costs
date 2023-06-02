@@ -1,10 +1,9 @@
 import loading from '../../img/loading.svg'
-import styles from './Loading.module.css'
 
-function Loading(){
+const Loading = () => {
     return(
-        <div className={`${styles.loaderContainer}`}>
-            <img src={loading} alt="Loading" className={`${styles.loader}`}/>
+        <div className='w-full h-full flex justify-center items-center'>
+            <img src={loading} alt="Loading" className={'w-12'}/>
         </div>
     )
 }
