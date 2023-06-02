@@ -22,17 +22,14 @@ function ServiceForm({ onSubmit, btnTxt, projectData }) {
     const submit = async (data) => {
         try {
             const result = await serviceSchema.validate(data, { abortEarly: false });
-            console.log(result)
+            projectData.services.push(result);
+            onSubmit(result)
         } catch (err) {
-            
+
             errors.inner.forEach(erro => {
                 console.error(erro.message)
             })
         }
-
-        // e.preventDefault();
-        // projectData.services.push(service);
-        // onSubmit(projectData)
     }
 
     const handleChange = (e) => {
