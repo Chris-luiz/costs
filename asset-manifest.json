@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/github-page/costs/static/css/main.85ee436f.css",
-    "main.js": "/github-page/costs/static/js/main.ac7d693c.js",
-    "static/media/savings.svg": "/github-page/costs/static/media/savings.25a5174d3c0ce57522d68f3ba58b7407.svg",
-    "index.html": "/github-page/costs/index.html",
-    "static/media/loading.svg": "/github-page/costs/static/media/loading.5ff8599871e56a8a672f0861a01ef3bc.svg",
-    "main.85ee436f.css.map": "/github-page/costs/static/css/main.85ee436f.css.map",
-    "main.ac7d693c.js.map": "/github-page/costs/static/js/main.ac7d693c.js.map"
+    "main.css": "/costs/static/css/main.85ee436f.css",
+    "main.js": "/costs/static/js/main.16184912.js",
+    "static/media/savings.svg": "/costs/static/media/savings.25a5174d3c0ce57522d68f3ba58b7407.svg",
+    "index.html": "/costs/index.html",
+    "static/media/loading.svg": "/costs/static/media/loading.5ff8599871e56a8a672f0861a01ef3bc.svg",
+    "main.85ee436f.css.map": "/costs/static/css/main.85ee436f.css.map",
+    "main.16184912.js.map": "/costs/static/js/main.16184912.js.map"
   },
   "entrypoints": [
     "static/css/main.85ee436f.css",
-    "static/js/main.ac7d693c.js"
+    "static/js/main.16184912.js"
   ]
 }
