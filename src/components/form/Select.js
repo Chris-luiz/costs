@@ -27,6 +27,3 @@ const Select = ({ text, name, defaultValue, options, rest, value, error }) => {
 }
 
 export default Select
-
-{/* onChange={handleOnChange} 
-                    value={value} */}
