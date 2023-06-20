@@ -29,7 +29,7 @@ function Project() {
         setIsloading(true);
 
         setTimeout(() => {
-            fetch(`http://localhost:5000/projects/${id}`, {
+            fetch(`http://localhost:3333/projetos/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -37,6 +37,7 @@ function Project() {
             })
                 .then(res => res.json())
                 .then(data => {
+                    console.log(data)
                     setProject(data)
                     setServices(data.services)
                     setIsloading(false);

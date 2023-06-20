@@ -23,9 +23,10 @@ function Projects() {
     useEffect(() => {
         setIsLoading(true);
         setTimeout(() => {
-            fetch('http://localhost:5000/projects')
+            fetch('http://localhost:3333/projetos')
                 .then(res => res.json())
                 .then(data => {
+                    console.log(data);
                     setProjects(data);
                     setIsLoading(false);
                 })
@@ -46,7 +47,7 @@ function Projects() {
 
     return (
         <div className='p-4 w-full'>
-            
+
             <div className='flex justify-between m-4'>
                 <h1 className='font-bold text-xl'>Meus Projetos</h1>
                 <LinkButton to='/newproject' text='Novo Projeto' />
