@@ -14,6 +14,10 @@ app.use(express.json());
 
 dotenv.config();
 
+app.get('/', (req, res) => {
+    res.send('aplicaao rodando com sucesso');
+})
+
 app.get('/projetos', async (req, res, next) => {
 
     const dbConnection = new DbConnection({
