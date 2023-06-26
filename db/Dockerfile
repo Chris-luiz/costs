@@ -4,7 +4,7 @@ ENV MYSQL_ROOT_PASSWORD=chadmin2020
 
 ENV MYSQL_DATABASE=costs
 
-COPY ./script.sql /docker-entrypoint-initdb.d/
+COPY ./db/script.sql /docker-entrypoint-initdb.d/
 
 EXPOSE 3306
 

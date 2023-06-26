@@ -33,19 +33,19 @@ app.get('/projetos', async (req, res, next) => {
     res.send(result);
 });
 
-app.get('/projetos/:id', async (req, res) => {
-    const dbConnection = new DbConnection({
-        host: process.env.HOST,
-        user: 'root',
-        password: process.env.PASSWORD,
-        database: process.env.DATABASE
-    });
+// app.get('/projetos/:id', async (req, res) => {
+//     const dbConnection = new DbConnection({
+//         host: process.env.HOST,
+//         user: 'root',
+//         password: process.env.PASSWORD,
+//         database: process.env.DATABASE
+//     });
 
-    dbConnection.openConnection();
+//     dbConnection.openConnection();
 
-    const result = await dbConnection.getById('projetos');
-    res.send(result);
-})
+//     const result = await dbConnection.getById('projetos');
+//     res.send(result);
+// })
 
 app.listen(3333, () => {
     console.log('listeing on port 3333');

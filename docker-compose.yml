@@ -1,36 +1,74 @@
-version: '3.3'
+version: '3.1'
 
 services:
-  db:
-    image: banco_de_dados
+  frontend:
+    container_name: container_front_end
+    image: frontend
+    depends_on:
+      - backend
     restart: always
+    build:
+      dockerfile: ./frontend/Dockerfile
+    networks:
+      - costs
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+
+  backend:
+    container_name: container_back_end
+    image: backend
+    depends_on:
+      - db
+    restart: always
+    build: 
+      dockerfile: ./backend/Dockerfile
+    networks:
+      - costs
+    ports:
+      - 3333:3333
+    volumes:
+      - ./backend:/app
+
+  db:
+    container_name: container_db
+    image: database
+    restart: always
+    build: 
+      dockerfile: ./db/Dockerfile
     networks:
       - costs
     ports:
       - "3306:3306"
+    volumes:
+      - database:/var/lib/mysql
 
   phpmyadmin: 
+    container_name: container_phpmyadmin
+    image: phpmyamdin_db
     depends_on:
       - db
-    image: phpmyamdin_db
     restart: always
+    build: 
+      dockerfile: ./db/phpmyadmin/Dockerfile
     networks:
       - costs
     ports:
       - "8888:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: chadmin2020
 
-
-#volumes:
+volumes:
+  database:
 
 networks:
   costs:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.19.0.3/80
-        - gateway: 172.19.0.3
-    
-    
+
 #secrets:
  
 #configs:
