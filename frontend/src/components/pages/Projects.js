@@ -26,7 +26,6 @@ function Projects() {
             fetch('http://localhost:3333/projetos')
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     setProjects(data);
                     setIsLoading(false);
                 })
@@ -36,7 +35,7 @@ function Projects() {
     }, []);
 
     function removeProject(id) {
-        fetch(`http://localhost:5000/projects/${id}`, { method: 'DELETE' })
+        fetch(`http://localhost:3333/projetos/${id}`, { method: 'DELETE' })
             .then(res => res.json())
             .then(() => {
                 setProjects(projects.filter(project => project.id !== id));

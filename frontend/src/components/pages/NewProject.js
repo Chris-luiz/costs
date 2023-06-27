@@ -2,8 +2,6 @@ import { useNavigate } from 'react-router-dom'
 import styles from './NewProject.module.css'
 import ProjectForm from './../project/ProjectForm'
 
-
-
 function NewProject() {
 
     const navigate = useNavigate()
@@ -14,7 +12,7 @@ function NewProject() {
             project.cost = 0
             project.services = []
 
-            fetch("http://localhost:5000/projects", {
+            fetch("http://localhost:3333/projetos", {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json',

@@ -1,8 +1,10 @@
 import express from 'express';
-import { DbConnection } from './server/db/Db';
 import * as dotenv from 'dotenv';
+import Routes from './router/Router';
 
 const cors = require('cors');
+
+dotenv.config();
 
 const app = express();
 
@@ -12,41 +14,6 @@ app.use(cors({
 
 app.use(express.json());
 
-dotenv.config();
+app.use(Routes)
 
-app.get('/', (req, res) => {
-    res.send('aplicaao rodando com sucesso');
-})
-
-app.get('/projetos', async (req, res, next) => {
-
-    const dbConnection = new DbConnection({
-        host: process.env.HOST,
-        user: 'root',
-        password: process.env.PASSWORD,
-        database: process.env.DATABASE
-    });
-
-    dbConnection.openConnection();
-
-    const result = await dbConnection.getAllFrom('projetos');
-    res.send(result);
-});
-
-// app.get('/projetos/:id', async (req, res) => {
-//     const dbConnection = new DbConnection({
-//         host: process.env.HOST,
-//         user: 'root',
-//         password: process.env.PASSWORD,
-//         database: process.env.DATABASE
-//     });
-
-//     dbConnection.openConnection();
-
-//     const result = await dbConnection.getById('projetos');
-//     res.send(result);
-// })
-
-app.listen(3333, () => {
-    console.log('listeing on port 3333');
-});
+app.listen(3333, () => console.log('listeing on port 3333'));

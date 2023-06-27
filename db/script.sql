@@ -38,5 +38,5 @@ ALTER TABLE `services`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 ALTER TABLE `services`
-  ADD CONSTRAINT `services_ibfk_1` FOREIGN KEY (`projeto_pk`) REFERENCES `projetos` (`id`);
+  ADD CONSTRAINT `services_ibfk_1` FOREIGN KEY (`projeto_pk`) REFERENCES `projetos` (`id`) ON DELETE CASCADE;
 COMMIT;

@@ -56,8 +56,8 @@ function Project() {
             return false;
         }
 
-        fetch(`http://localhost:5000/projects/${project.id}`, {
-            method: 'PATCH',
+        fetch(`http://localhost:3333/projetos/${project.id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -89,8 +89,8 @@ function Project() {
 
         project.cost = newCost;
 
-        fetch(`http://localhost:5000/projects/${project.id}`, {
-            method: 'PATCH',
+        fetch(`http://localhost:3333/servicos`, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
