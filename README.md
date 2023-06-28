@@ -10,29 +10,29 @@ Você pode encontrar esse projeto rodando no github pages, basta clicar no link 
 ## Oque inovei
 
 Para simplesmente não copiar e colar o projeto do curso, resolvi acresentar novas funcionalidades conforme fui evoluindo como desenvolvedor front-end.
+Depois implementei um backend em node com ExpressJS conectando a um banco mysql 
+Por ultimo fiz a conteinerização da aplicação com Docker e Docker-Compose
 A lista de features que inclui nesse projeto foram: 
 
 * Acrecentei validações de formulario nas operações de CRUD, para isso, utilizei a biblioteca yup
 * Para gerenciar os dados dos formularios, utilizei a biblioteca React-Hook-Forms
 * Refiz a estilização utilizando Styled-Components.
+* Fiz um backend em NodeJS com express 
+* Conteinerização dom Docker
 
 
 ## Como Rodar Esse Projeto em sua Maquina
 
-### `npm install`
+### `docker compose up`
 
-Primeiramente, em seu terminal, instale as dependencias.\
-Execute o comando `npm install` em seu terminal e aguarde as dependencias serem corretamente instaladas
+Toda a aplicação está rodando em conteiners docker, então será necessário ter o docker instalado na maquina, seja distro linux ou windows, e para rodar a aplicação execute o comando `docker compose up` para levantar todos os containers em suas respectivas portas:
 
-### `npm start`
+* phpmyadmin => 8888
+* mysql => 3306
+* backend => 3333
+* frontend => 3000 
 
-Quando as dependencias forem instaladas, execute o comando npm start para iniciar o projeto em ambiente de desenvolvimento.\
-Em seu navegador favorito, acesse [http://localhost:3000](http://localhost:3000) para ver a aplicação.
-
-### `npm backend`
-
-Essa aplicação não utiliza um backend, então para simular um, utilizo a biblioteca json-server, que é fundamental para a aplicação rodar.
-Para rodar o json-server, execute o comando npm-run-backend junto do npm start, para que cliente e servidor rodem simultaneamente
+Obs: caso hajá conflito com a porta do mysql, execute o comando `systemctl stop mysql` para parar o mysql e liberar a porta
 
 ## Imagens do Projeto
 
