@@ -58,29 +58,38 @@ export class Servicos {
     //     }
     // }
 
-    async create(projeto: IServicos) {
+    async create(servico: IServicos) {
 
-        const { nome, projeto_pk, cost, description } = projeto;
+        if (servico.length > 1) {
 
-        const sql = `INSERT INTO servicos (projeto_pk, name, cost, description) values (${projeto_pk}, '${nome}', ${cost}, '${description}')`
+            const { name, projeto_pk, budget, description } = servico;
 
-        const dbConnection = new DbConnection({
-            host: process.env.HOST,
-            user: 'root',
-            password: process.env.PASSWORD,
-            database: process.env.DATABASE
-        });
-
-        try {
-            return await new Promise<IServicos[]>((resolve, reject) => {
-                dbConnection.conn.query<IServicos[]>(sql, (err, res) => {
-                    if (err) reject(err);
-                    else resolve(res);
-                });
-            });
-        } catch (error) {
-            throw new Error(`Erro ao obter os dados: ${error}`);
+            console.log(servico);
+            console.log(projeto_pk);
+            console.log(budget);
+            console.log(description);
         }
+        return;
+
+        // const sql = `INSERT INTO servicos (projeto_pk, name, cost, description) values (${projeto_pk}, '${name}', ${cost}, '${description}')`
+
+        // const dbConnection = new DbConnection({
+        //     host: process.env.HOST,
+        //     user: 'root',
+        //     password: process.env.PASSWORD,
+        //     database: process.env.DATABASE
+        // });
+
+        // try {
+        //     return await new Promise<IServicos[]>((resolve, reject) => {
+        //         dbConnection.conn.query<IServicos[]>(sql, (err, res) => {
+        //             if (err) reject(err);
+        //             else resolve(res);
+        //         });
+        //     });
+        // } catch (error) {
+        //     throw new Error(`Erro ao obter os dados: ${error}`);
+        // }
     }
 
     // async update(projeto: IProjeto) {

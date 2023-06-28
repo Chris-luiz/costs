@@ -26,9 +26,10 @@ Routes.post('/projetos', async (req, res) => {
 
 Routes.post('/servicos', async (req, res) => {
 
+    const service = req.body.services;
     const servico = new Servicos();
-    // await projeto.create(req.body as IProjeto);
-    // res.json('ok');
+    await servico.create(service);
+    res.json('ok');
 });
 
 Routes.get('/projetos/:id', async (req, res) => {
