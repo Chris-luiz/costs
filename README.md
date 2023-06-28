@@ -34,3 +34,8 @@ Em seu navegador favorito, acesse [http://localhost:3000](http://localhost:3000)
 Essa aplicação não utiliza um backend, então para simular um, utilizo a biblioteca json-server, que é fundamental para a aplicação rodar.
 Para rodar o json-server, execute o comando npm-run-backend junto do npm start, para que cliente e servidor rodem simultaneamente
 
+## Imagens do Projeto
+
+![alt text](./images/Screenshot%20from%202023-06-28%2013-15-47.png)
+![alt text](./images/Screenshot%20from%202023-06-28%2013-15-54.png)
+![alt text](./images/Screenshot%20from%202023-06-28%2013-15-58.png)
