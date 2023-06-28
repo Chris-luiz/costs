@@ -32,7 +32,7 @@ Toda a aplicação está rodando em conteiners docker, então será necessário 
 * backend => 3333
 * frontend => 3000 
 
-Obs: caso hajá conflito com a porta do mysql, execute o comando `systemctl stop mysql` para parar o mysql e liberar a porta
+Obs: caso haja conflito com a porta do mysql, execute o comando `systemctl stop mysql` para parar o mysql e liberar a porta
 
 ## Imagens do Projeto
 
